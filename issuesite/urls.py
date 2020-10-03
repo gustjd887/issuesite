@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from issue.views import IndexView
+from issue.views import issue_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view()),
+    path('', issue_list, name='issue_list'),
     # path('search/', SearchView.as_view()),
     # path('filter/', FilterView.as_view()),
 ]
