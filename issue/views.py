@@ -13,10 +13,13 @@ class IndexView(generic.ListView):
 @page_template('parts/issue_list.html')  # just add this decorator
 def issue_list(request, template='main.html', extra_context=None):
     issue_list = Issue.objects.all()
+    community_list = Community.objects.exclude(site='total')
     if request.GET.get('keyword'):
         issue_list = issue_list.filter(title__contains=request.GET.get('keyword'))
+
     context = {
         'issue_list': issue_list.order_by('-date'),
+        'community_list': community_list,
     }
     if extra_context is not None:
         context.update(extra_context)
