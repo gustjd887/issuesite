@@ -2,7 +2,9 @@ from django.db import models
 
 
 class Community(models.Model):
-    site = models.CharField(max_length=10)
+    site_choice = (('pp', '뽐뿌'), ('cl', '클리앙'), ('ou', '오유'))
+
+    site = models.CharField(max_length=10, choices=site_choice)
     rank = models.CharField(max_length=100)
 
     def __str__(self):
