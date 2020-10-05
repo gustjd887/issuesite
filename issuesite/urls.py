@@ -20,6 +20,6 @@ from issue.views import issue_list
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', issue_list, name='issue_list'),
-    # path('search/', SearchView.as_view()),
+    # path('search/<str:keyword>', issue_list, name='issue_search'),
     # path('filter/', FilterView.as_view()),
 ]
