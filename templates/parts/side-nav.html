@@ -13,7 +13,7 @@
 {#    </div>#}
     {% for community in community_list %}
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="{{ community.site }}" checked="">
+            <input type="checkbox" class="custom-control-input" id="{{ community.site }}">
             <label class="custom-control-label" for="{{ community.site }}">{{ community.site }}</label>
         </div>
     {% endfor %}

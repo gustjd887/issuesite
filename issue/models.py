@@ -14,7 +14,7 @@ class Community(models.Model):
 
 
 class Issue(models.Model):
-    site = models.ForeignKey(Community, max_length=10, on_delete=models.CASCADE, choices=site_choice) # 커뮤니티 이름
+    site = models.ForeignKey(Community, max_length=10, on_delete=models.CASCADE) # 커뮤니티 이름
     url = models.CharField(max_length=200, unique=True) # 주소
     title = models.CharField(max_length=100)  # 제목
     reply = models.IntegerField()  # 댓글
