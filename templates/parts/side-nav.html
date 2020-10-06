@@ -17,4 +17,17 @@
             <label class="custom-control-label" for="{{ community.site }}">{{ community.site }}</label>
         </div>
     {% endfor %}
+    <script>
+        $("input[class='custom-control-input']").click(function () {
+
+            var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("Get", "/filter/?" + encodeURIComponent(checked), true);
+            console.log("step1");
+            //xhr.onreadystatechange = addIdCheckMsg;
+            console.log("step2");
+            xhr.send(null);
+        });
+    </script>
 </div>
