@@ -29,7 +29,7 @@
         <div class="col-md-3">
             {% include 'parts/side-nav.html' %}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" id="content-main">
             {% include 'parts/issue_list.html' %}
             {{ block.super }}
             <script>$.endlessPaginate({paginateOnScroll: true});</script>

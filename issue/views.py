@@ -1,3 +1,5 @@
+from urllib.parse import unquote
+from django.db.models import Q
 from django.shortcuts import render
 from issue.models import Issue, Community
 from django.views import generic
@@ -14,8 +16,12 @@ class IndexView(generic.ListView):
 def issue_list(request, template='main.html', extra_context=None):
     issue_list = Issue.objects.all()
     community_list = Community.objects.exclude(site='total')
-    if request.GET.dict():
-        print(request.GET.dict())
+    site_list = []
+    if request.get_full_path()[1:7] == 'filter': # 왼쪽 필터 적용 할 경우
+        for site_key, site_value in request.GET.dict().items():
+            if site_value == 'true':
+                site_list.append(site_key)
+        issue_list = issue_list.filter(site__site__in=site_list)
     context = {
         'issue_list': issue_list.order_by('-date'),
         'community_list': community_list,

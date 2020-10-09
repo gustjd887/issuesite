@@ -19,15 +19,17 @@
     {% endfor %}
     <script>
         $("input[class='custom-control-input']").click(function () {
-
             var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
             var xhr = new XMLHttpRequest();
 
-            xhr.open("Get", "/filter/?" + encodeURIComponent(checked), true);
-            console.log("step1");
-            //xhr.onreadystatechange = addIdCheckMsg;
-            console.log("step2");
-            xhr.send(null);
+            xhr.open("Get", "/filter/?" + checked, true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("content-main").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
         });
     </script>
 </div>
