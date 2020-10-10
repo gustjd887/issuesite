@@ -1,28 +1,18 @@
 <div class="form-group">
-{#    <div class="custom-control custom-switch">#}
-{#        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="">#}
-{#        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>#}
-{#    </div>#}
-{#    <div class="custom-control custom-switch">#}
-{#        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="">#}
-{#        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>#}
-{#    </div>#}
-{#    <div class="custom-control custom-switch">#}
-{#        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="">#}
-{#        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>#}
-{#    </div>#}
     {% for community in community_list %}
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="{{ community.site }}">
-            <label class="custom-control-label" for="{{ community.site }}">{{ community.site }}</label>
-        </div>
+        {% if community.site != 'total' %}
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="{{ community.site }}">
+                <label class="custom-control-label" for="{{ community.site }}">{{ community.site }}</label>
+            </div>
+        {% endif %}
     {% endfor %}
     <script>
         $("input[class='custom-control-input']").click(function () {
             var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
             var xhr = new XMLHttpRequest();
 
-            xhr.open("Get", "/filter/?" + checked, true);
+            xhr.open("Get", "/?" + checked, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {

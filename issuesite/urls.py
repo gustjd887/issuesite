@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from issue.views import issue_list
@@ -21,7 +20,5 @@ from issue.views import issue_list
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', issue_list, name='issue_list'),
-    path('filter/', issue_list, name='issue_list'), # ?뒤의 파라미터는 주소로 인정하지 않기 때문에 filter/ 까지만 정의
-    # path('search/<str:keyword>', issue_list, name='issue_search'),
-    # url('filter', issue_list, name='issue_filter'),
+    # path('search/', issue_list, name='issue_search'), # ?뒤의 파라미터는 주소로 인정하지 않기 때문에 filter/ 까지만 정의
 ]
