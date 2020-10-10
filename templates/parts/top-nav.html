@@ -4,10 +4,35 @@
             <a class="navbar-brand" href="/">Issue Collector</a>
         </div>
         <div class="col-md-6">
-{#            <form class="form-inline my-2 my-lg-0" style="width: 100%">#}
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-{#            </form>#}
+            <input class="form-control mr-sm-2" id="issue_search" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" id="issue_search_btn" type="submit">Search</button>
+            <script>
+                var input = document.getElementById("issue_search");
+                var btn = document.getElementById("issue_search_btn");
+
+                input.addEventListener("keyup", function (event) {
+                    // Number 13 is the "Enter" key on the keyboard
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        btn.click();
+                    }
+                });
+
+                btn.addEventListener("click", function (event) {
+                    var xhr = new XMLHttpRequest();
+
+                    var keyword = input.value;
+
+                    xhr.open("Get", "/?keyword=" + keyword, true);
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            document.getElementById("content-main").innerHTML = xhr.responseText;
+                        }
+                    };
+                    xhr.send();
+                });
+            </script>
         </div>
         <div class="col-md-3">
             total_rank
