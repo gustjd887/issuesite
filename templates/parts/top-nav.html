@@ -3,7 +3,7 @@
         <div class="col-md-3">
             <a class="navbar-brand" href="/">Issue Collector</a>
         </div>
-        <div class="col-md-6">
+        <div class="input-group col-md-6">
             <input class="form-control mr-sm-2" id="issue_search" type="text" placeholder="Search">
             <button class="btn btn-secondary my-2 my-sm-0" id="issue_search_btn" type="submit">Search</button>
             <script>
@@ -20,10 +20,10 @@
 
                 btn.addEventListener("click", function (event) {
                     var xhr = new XMLHttpRequest();
-
                     var keyword = input.value;
+                    var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
 
-                    xhr.open("Get", "/?keyword=" + keyword, true);
+                    xhr.open("Get", "/?keyword=" + keyword + "&" + checked, true);
                     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -35,7 +35,7 @@
             </script>
         </div>
         <div class="col-md-3">
-            total_rank
+{#            total_rank#}
         </div>
     </div>
 </nav>

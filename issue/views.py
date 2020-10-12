@@ -10,7 +10,7 @@ def issue_list(request, template='main.html', extra_context=None):
     if request.GET.get('pp'):
         site_list = [site_key for site_key, site_value in request.GET.dict().items() if site_value == 'true']
         issue_list = issue_list.filter(site__site__in=site_list)
-    elif request.GET.get('keyword'):
+    if request.GET.get('keyword'):
         issue_list = issue_list.filter(title__contains=request.GET.get('keyword'))
     context = {
         'issue_list': issue_list.order_by('-date'),
