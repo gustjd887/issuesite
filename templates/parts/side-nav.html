@@ -1,15 +1,17 @@
 <div class="form-group">
-    {% for community in community_list %}
-        {% if community.site != 'total' %}
+    {% for site in site_list %}
+        {% if site != 'total' %}
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="{{ community.site }}">
-                <label class="custom-control-label" for="{{ community.site }}">{{ community.site }}</label>
+                <input type="checkbox" class="custom-control-input" id="{{ site }}" checked>
+                <label class="custom-control-label" for="{{ site }}">{{ site }}</label>
             </div>
         {% endif %}
     {% endfor %}
     <script>
         $("input[class='custom-control-input']").click(function () {
             var keyword = input.value;
+
+
             var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
 
             var xhr = new XMLHttpRequest();

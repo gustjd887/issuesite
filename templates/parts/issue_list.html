@@ -1,11 +1,11 @@
 {% load el_pagination_tags %}
-
+{% load upto %}
 {% paginate issue_list %}
 {% for issue in issue_list %}
     <div class="card text-white bg-primary mb-3">
         <div class="card-header">
             {{ issue.site }}
-            <span class="float-right"><i class="far fa-thumbs-up">{{ issue.like }}</i> <i class="far fa-comment-dots">{{ issue.reply }}</i> <i class="far fa-clock">{{ issue.date }}</i></span>
+            <span class="float-right"><i class="far fa-thumbs-up">{{ issue.like }}</i> <i class="far fa-comment-dots">{{ issue.reply }}</i> <i class="far fa-clock">{{ issue.date|timesince|upto:',' }} 전</i></span>
         </div>
         <div class="card-body">
             <h4 class="card-title"><a href="{{ issue.url }}">{{ issue.title }}</a></h4>
