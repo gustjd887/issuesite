@@ -8,7 +8,7 @@
             <span class="float-right"><i class="far fa-thumbs-up">{{ issue.like }}</i> <i class="far fa-comment-dots">{{ issue.reply }}</i> <i class="far fa-clock">{{ issue.date|timesince|upto:',' }} 전</i></span>
         </div>
         <div class="card-body">
-            <h4 class="card-title"><a href="{{ issue.url }}">{{ issue.title }}</a></h4>
+            <h4 class="card-title"><a href="{{ issue.url }}" target="_blank">{{ issue.title }}</a></h4>
         </div>
     </div>
 {% endfor %}
