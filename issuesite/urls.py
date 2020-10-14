@@ -20,5 +20,4 @@ from issue.views import issue_list
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', issue_list, name='issue_list'),
-    # path('search/', issue_list, name='issue_search'), # ?뒤의 파라미터는 주소로 인정하지 않기 때문에 filter/ 까지만 정의
 ]

@@ -9,7 +9,6 @@
             <script>
                 var input = document.getElementById("issue_search");
                 var btn = document.getElementById("issue_search_btn");
-
                 input.addEventListener("keyup", function (event) {
                     // Number 13 is the "Enter" key on the keyboard
                     if (event.keyCode === 13) {
@@ -17,12 +16,10 @@
                         btn.click();
                     }
                 });
-
                 btn.addEventListener("click", function (event) {
                     var xhr = new XMLHttpRequest();
                     var keyword = input.value;
                     var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
-
                     xhr.open("Get", "/?keyword=" + keyword + "&" + checked, true);
                     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                     xhr.onreadystatechange = function () {
@@ -35,7 +32,7 @@
             </script>
         </div>
         <div class="col-md-3">
-{#            total_rank#}
+            {#            total_rank#}
         </div>
     </div>
 </nav>

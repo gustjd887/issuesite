@@ -23,34 +23,3 @@
         </div>
     {% endfor %}
 </div>
-
-{#<ul class="nav nav-tabs">#}
-{#    {% for site in site_list %}#}
-{#        {% if forloop.counter == 1 %}#}
-{#            <li class="nav-item">#}
-{#                <a class="nav-link active" data-toggle="tab" href="#right_{{ site }}">{{ site }}</a>#}
-{#            </li>#}
-{#        {% else %}#}
-{#            <li class="nav-item">#}
-{#                <a class="nav-link" data-toggle="tab" href="#right_{{ site }}">{{ site }}</a>#}
-{#            </li>#}
-{#        {% endif %}#}
-{#    {% endfor %}#}
-{#</ul>#}
-{#<div id="myTabContent" class="tab-content">#}
-{#    {% for site, site_info in site_list.items %}#}
-{#        {% if forloop.counter == 1 %}#}
-{#            <div class="tab-pane fade show active" id="right_{{ site }}">#}
-{#                {% for rank in site_info %}#}
-{#                    <li style="list-style-type: none">{{ forloop.counter }}. <a href="{{ rank.url }}">{{ rank.title }}</a></li>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        {% else %}#}
-{#            <div class="tab-pane fade" id="right_{{ site }}">#}
-{#                {% for rank in site_info %}#}
-{#                    <li style="list-style-type: none">{{ forloop.counter }}. <a href="{{ rank.url }}">{{ rank.title }}</a></li>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        {% endif %}#}
-{#    {% endfor %}#}
-{#</div>#}

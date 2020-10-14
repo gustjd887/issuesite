@@ -10,12 +10,8 @@
     <script>
         $("input[class='custom-control-input']").click(function () {
             var keyword = input.value;
-
-
             var checked = ("pp=" + $("#pp").is(":checked") + "&cl=" + $("#cl").is(":checked") + "&ou=" + $("#ou").is(":checked"));
-
             var xhr = new XMLHttpRequest();
-
             xhr.open("Get", "/?keyword=" + keyword + "&" + checked, true);
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onreadystatechange = function () {
