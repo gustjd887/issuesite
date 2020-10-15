@@ -1,4 +1,4 @@
-<div style="position: fixed">
+{#<div style="position:fixed">#}
     <ul class="nav nav-tabs">
         {% for site in site_list %}
             <li class="nav-item">
@@ -10,7 +10,7 @@
             </li>
         {% endfor %}
     </ul>
-    <div id="myTabContent" class="tab-content">
+    <div id="myTabContent" class="tab-content" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
         {% for site, site_info in site_list.items %}
             <div class="tab-pane fade
             {% if forloop.counter == 1 %}
@@ -25,4 +25,4 @@
             </div>
         {% endfor %}
     </div>
-</div>
+{#</div>#}

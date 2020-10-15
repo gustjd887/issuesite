@@ -4,14 +4,14 @@ site_choice = (('pp', '뽐뿌'), ('cl', '클리앙'), ('ou', '오유')) # 선택
 
 
 class Community(models.Model):
-    site = models.CharField(max_length=10, choices=site_choice) # 전체 랭킹을 위한 total이 추가되어 있으며, 이후 선택은 3가지중 하나
+    site = models.CharField(max_length=10) # 전체 랭킹을 위한 total이 추가되어 있으며, 이후 선택은 3가지중 하나
     rank = models.CharField(max_length=200) # 랭킹을 나열. Issue 클래스의 id를 저장한다.
     def __str__(self):
         return self.site
 
 
 class Issue(models.Model):
-    site = models.ForeignKey(Community, max_length=10, on_delete=models.CASCADE) # 커뮤니티 이름
+    site = models.CharField(max_length=10, choices=site_choice) # 커뮤니티 이름
     url = models.CharField(max_length=200, unique=True) # 주소
     title = models.CharField(max_length=100)  # 제목
     reply = models.IntegerField()  # 댓글
