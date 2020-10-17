@@ -1,0 +1,11 @@
+.git
+.idea
+__pycache__
+static
+venv
+.dockerignore
+.gitignore
+db.sqlite3
+Dockerfile
+SECRET_KEY.txt
+*.pyc

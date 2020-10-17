@@ -1,10 +1,12 @@
-FROM python:3.8.6-slimn
+FROM python:3.8.5-slim
 
-RUN apt update -y
+RUN apt update -y && apt install -y libpq-dev gcc
 WORKDIR /app
-COPY requirements.txt /app
+COPY ./ /app
 RUN pip install -r requirements.txt
 ENV	PYTHONUNBUFFERED=1
 ENV	TZ=Asia/Seoul
 
-ENTRYPOINT ["gunicorn", "issue.wsgi", "--bind=0:8000"]
+EXPOSE 8000
+
+ENTRYPOINT ["gunicorn", "issuesite.wsgi", "--bind=0:8000"]

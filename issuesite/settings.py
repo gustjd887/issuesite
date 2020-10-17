@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': os.environ.get('DJANGO_DB_NAME', 'issue'),
         'USER': os.environ.get('DJANGO_DB_USERNAME', 'gustjd887'),
         'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', 'gustjd25'),
-        'HOST': os.environ.get('DJANGO_DB_HOST', '127.0.0.1'),
+        'HOST': os.environ.get('DJANGO_DB_HOST', 'postgres'),
         'PORT': os.environ.get('DJANGO_DB_PORT', '5432'),
     }
 }
@@ -132,7 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://objectstorage.ap-seoul-1.oraclecloud.com/n/cnpzvazsmss4/b/issue/o/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
