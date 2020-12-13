@@ -18,6 +18,6 @@ from django.urls import path
 from issue.views import issue_list
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', issue_list, name='issue_list'),
 ]
